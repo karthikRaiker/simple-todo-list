@@ -15,6 +15,7 @@ const App = () => {
           name: inputValue,
           id: new Date(),
           color: generateRandomColor(),
+          toggle: false,
         },
       ]);
     } else {
@@ -22,6 +23,20 @@ const App = () => {
     }
 
     setInputValue("");
+  };
+
+  const handleToggle = (id) => {
+    todolist.forEach((todo, index) => {
+      if (todo.id === id) {
+        console.log(todolist[index]);
+        // setTodoList([
+        //   ...todolist,
+        //   {
+        //     toggle: !todolist[index].toggle,
+        //   },
+        // ]);
+      }
+    });
   };
 
   const handledeleteItem = (id) => {
@@ -53,7 +68,11 @@ const App = () => {
             Add
           </button>
         </form>
-        <TodoItem todolist={todolist} handledeleteItem={handledeleteItem} />
+        <TodoItem
+          todolist={todolist}
+          handledeleteItem={handledeleteItem}
+          handleToggle={handleToggle}
+        />
       </div>
     </div>
   );
