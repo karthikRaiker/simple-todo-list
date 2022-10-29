@@ -5,6 +5,7 @@ import TodoItem from "./component/TodoItem";
 const App = () => {
   const [todolist, setTodoList] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [dark, setDark] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,11 +30,11 @@ const App = () => {
     todolist.forEach((todo, index) => {
       if (todo.id === id) {
         console.log(todolist[index]);
+        // const toggleChanges = !todolist[index].toggle;
+        // console.log(toggleChanges);
         // setTodoList([
         //   ...todolist,
-        //   {
-        //     toggle: !todolist[index].toggle,
-        //   },
+        //   { ...todolist[index], toggle: toggleChanges },
         // ]);
       }
     });
@@ -59,6 +60,9 @@ const App = () => {
         style={{ border: `1px solid ${generateRandomColor()}` }}
       >
         <div>My todo list</div>
+        <button onClick={() => setDark((prevState) => !prevState)}>
+          {dark ? `Ligh Mode` : `Dark Mode`}
+        </button>
         <form className="form" onSubmit={handleSubmit}>
           <input
             name="todoInput"
@@ -75,6 +79,7 @@ const App = () => {
           todolist={todolist}
           handledeleteItem={handledeleteItem}
           handleToggle={handleToggle}
+          dark={dark}
         />
       </div>
     </div>

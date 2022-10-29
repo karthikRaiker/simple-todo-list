@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-function TodoItem({ todolist, handledeleteItem, handleToggle }) {
+function TodoItem({ todolist, handledeleteItem, handleToggle, dark }) {
   return (
     <div className="item-conainer">
       {todolist.length
@@ -8,7 +8,10 @@ function TodoItem({ todolist, handledeleteItem, handleToggle }) {
             <div
               key={todo.id}
               className="todo-item"
-              style={{ backgroundColor: todo.color }}
+              style={{
+                backgroundColor: dark ? "#333" : todo.color,
+                color: dark ? "white" : "",
+              }}
               onClick={() => handleToggle(todo.id)}
             >
               <div>{todo.name}</div>
