@@ -54,7 +54,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="container">
+      <div
+        className="container"
+        style={{ border: `1px solid ${generateRandomColor()}` }}
+      >
         <div>My todo list</div>
         <form className="form" onSubmit={handleSubmit}>
           <input
