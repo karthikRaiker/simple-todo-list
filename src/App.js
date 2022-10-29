@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import TodoItem from "./component/TodoItem";
 
@@ -15,7 +15,6 @@ const App = () => {
           name: inputValue,
           id: new Date(),
           color: generateRandomColor(),
-          toggle: false,
         },
       ]);
     } else {
