@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import TodoItem from "./component/TodoItem";
+import { FaToggleOn, FaToggleOff } from "react-icons/fa";
 
 const App = () => {
   const [todolist, setTodoList] = useState([]);
@@ -60,9 +61,31 @@ const App = () => {
         style={{ border: `1px solid ${generateRandomColor()}` }}
       >
         <div>My todo list</div>
-        <button onClick={() => setDark((prevState) => !prevState)}>
-          {dark ? `Ligh Mode` : `Dark Mode`}
-        </button>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "1.2rem",
+            cursor: "pointer",
+            position: "relative",
+            margin: "0.5rem 0",
+          }}
+          onClick={() => setDark((prevState) => !prevState)}
+        >
+          <span>
+            {dark ? <FaToggleOn style={{ color: "green" }} /> : <FaToggleOff />}
+          </span>{" "}
+          <span
+            style={{
+              fontSize: "0.7rem",
+              paddingBottom: "0.3rem",
+              paddingLeft: "0.5rem",
+            }}
+          >
+            Dark Mode
+          </span>
+        </div>
         <form className="form" onSubmit={handleSubmit}>
           <input
             name="todoInput"

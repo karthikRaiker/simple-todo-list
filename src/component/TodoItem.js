@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import { MdDelete } from "react-icons/md";
 function TodoItem({ todolist, handledeleteItem, handleToggle, dark }) {
   return (
     <div className="item-conainer">
@@ -14,14 +15,10 @@ function TodoItem({ todolist, handledeleteItem, handleToggle, dark }) {
               }}
               onClick={() => handleToggle(todo.id)}
             >
-              <div>{todo.name}</div>
-              <button
-                className="delete"
-                onClick={() => handledeleteItem(todo.id)}
-                style={{ background: "red" }}
-              >
-                Delete
-              </button>
+              <div style={{ marginRight: "2rem" }}>{todo.name}</div>
+              <div className="delete" onClick={() => handledeleteItem(todo.id)}>
+                <MdDelete style={{ fontSize: "1.5rem" }} />
+              </div>
             </div>
           ))
         : null}
